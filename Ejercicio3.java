@@ -6,7 +6,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ejercicio3 {
+	/**
+	 * pre: 
+	 * post: Implementa un método informacionVideojuegos() que devuelve un ArrayList<String> que
+	 * agrupe todas las plataformas para las que hay videojuegos en el fichero entregado. Es
+     * decir, se debe almacenar UNA SOLA VEZ, cada una de las plataformas que aparecen en
+     * el fichero .csv.
+	 */
 	private static void lectura(String nombre) {
+		/*
+		 * en este metodo leemos el fichero y mostramos por pantalla todas las consolas
+		 * que existen dentro de este fichero
+		 */
 		boolean existe = false;
 		ArrayList<String> consolas = new ArrayList<String>();
 		// para poder leer un archivo hay que crear un objeto de clase file con la ruta
@@ -41,18 +52,7 @@ public class Ejercicio3 {
 					}
 					consolas.add(linesep[2]);
 				}
-				for (int i = 0; i < consolas.size() -1; i++) {
-//					//System.out.println(consolas.get(i));
-//					if(consolas.get(i) == consolas.get(i+1)) {
-//						consolas.remove(i + 1);
-//					}
-//					if (consolas.contains(consolas.get(i + 1))) {
-//						existe = true;
-//						if (existe == true) {
-//							consolas.remove(i);
-//						}
-//					}
-				}
+				
 				for (int i = 0; i < consolas.size(); i++) {
 					System.out.println(consolas.get(i));
 				}
@@ -67,6 +67,9 @@ public class Ejercicio3 {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * menu en el que pasamos la ruta 
+		 */
 		Scanner entrada = new Scanner(System.in);
 		System.out.print("Dame la ruta + nombre del fichero: ");
 		// C:\Users\Gestor\Desktop\ventasVideojuegos.csv

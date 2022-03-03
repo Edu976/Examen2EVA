@@ -10,6 +10,10 @@ import java.util.Scanner;
  * número de palabras del texto cuya longitud es mayor o igual que [longitud].
  */
 public class Ejercicio2 {
+	/*
+	 * en este metodo leemos el fichero y comparamos la longitud cada palabra con la longitud 
+	 * enviada por el usuario
+	 */
 
 	private static int palabrasMasLargasQue(String nombre, int longitudUsuario) {
 		int iguales = 0;
@@ -38,10 +42,13 @@ public class Ejercicio2 {
 				 */
 				String[] linesep = linea.split(" ");
 				for (int i = 0; i < linesep.length; i++) {
+					/*
+					 * comparamos la longitud y si es mayor
+					 */
 					if(linesep[i].length() == longitudUsuario) {
 						iguales++;
 					}
-					else if(linesep[i].length() == longitudUsuario) {
+					else if(linesep[i].length() >= longitudUsuario) {
 						mayores++;
 					}
 					//System.out.println(linesep[i].length());
@@ -58,6 +65,10 @@ public class Ejercicio2 {
 	}
 
 	public static void main(String[] args) {
+		/*
+		 * menu en el que pasamos la ruta y la longitud con la que vamos a comparar el tamaño de
+		 * las palabras y lo mandamos al metodo de palabrasMasLargasQue
+		 */
 		Scanner entrada = new Scanner(System.in);
 		System.out.print("Dame la ruta + nombre del fichero: ");
 		// C:\Users\Gestor\Desktop\textoExamen.txt

@@ -33,19 +33,31 @@ public class Ejercicio3 {
 				 */
 				String[] linesep = linea.split(",");
 				for (int i = 0; i < linesep.length; i++) {
+					if(consolas.contains(linesep[2])) {
+						existe = true;
+					}
+					else {
+						consolas.add(linesep[2]);
+					}
 					consolas.add(linesep[2]);
 				}
-//				for(int i = 0; i < consolas.size(); i++) {
+				for (int i = 0; i < consolas.size() -1; i++) {
 //					//System.out.println(consolas.get(i));
 //					if(consolas.get(i) == consolas.get(i+1)) {
 //						consolas.remove(i + 1);
 //					}
-//				}
-				for(int i = 0; i < consolas.size(); i++) {
+//					if (consolas.contains(consolas.get(i + 1))) {
+//						existe = true;
+//						if (existe == true) {
+//							consolas.remove(i);
+//						}
+//					}
+				}
+				for (int i = 0; i < consolas.size(); i++) {
 					System.out.println(consolas.get(i));
 				}
-				
-				//System.out.println(existe);
+
+				// System.out.println(existe);
 			}
 			f.close();
 
@@ -58,7 +70,7 @@ public class Ejercicio3 {
 		Scanner entrada = new Scanner(System.in);
 		System.out.print("Dame la ruta + nombre del fichero: ");
 		// C:\Users\Gestor\Desktop\ventasVideojuegos.csv
-		String fichero = entrada.nextLine(); 
+		String fichero = entrada.nextLine();
 		// pasamos la ruta al metodo de lectura
 		lectura(fichero);
 	}

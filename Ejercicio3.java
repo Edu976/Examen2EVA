@@ -2,10 +2,13 @@ package examen2EVA;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ejercicio3 {
 	private static void lectura(String nombre) {
+		boolean existe = false;
+		ArrayList<String> consolas = new ArrayList<String>();
 		// para poder leer un archivo hay que crear un objeto de clase file con la ruta
 		// del archivo
 		File file = new File(nombre);
@@ -30,7 +33,28 @@ public class Ejercicio3 {
 				 */
 				String[] linesep = linea.split(",");
 				for (int i = 0; i < linesep.length; i++) {
-					System.out.println(linesep[2]);
+					consolas.add(linesep[2]);
+					for (int j = 0; j < consolas.size(); j++) {
+						// consolas.add(linesep[2]);
+						// System.out.println(linesep[2]);
+						if (consolas.contains(linesep[2])) {
+							existe = true;
+						} else {
+							existe = false;
+						}
+						if (existe == false) {
+							System.out.println("para");
+							consolas.add(linesep[2]);
+						}
+						// System.out.println(linesep[2]);
+					}
+				}
+				for (int i = 0; i < consolas.size(); i++) {
+					if (consolas.contains(linesep[2])) {
+						existe = true;
+					}
+					//System.out.println("para");
+					System.out.println(consolas.get(i));
 				}
 			}
 			f.close();

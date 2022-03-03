@@ -10,14 +10,9 @@ import java.util.Scanner;
  * número de palabras del texto cuya longitud es mayor o igual que [longitud].
  */
 public class Ejercicio2 {
-	public static int palabrasMasLargasQue(int longitud) {
-		System.out.println("Dime la longitud");
-		
-		return longitud;
-
-	}
-
-	private static void lectura(String nombre) {
+	public static int palabrasMasLargasQue(int longitud, String nombre) {
+		int mayor = 0;
+		int igual = 0;
 		// para poder leer un archivo hay que crear un objeto de clase file con la ruta
 		// del archivo
 		File file = new File(nombre);
@@ -43,14 +38,23 @@ public class Ejercicio2 {
 				String[] linesep = linea.split(" ");
 				for (int i = 0; i < linesep.length; i++) {
 					System.out.println(linesep[i].length());
-					palabrasMasLargasQue(linesep[i].length());
+					if (linesep[i].length() == longitud) {
+						igual++;
+						return igual;
+					}
+					if (linesep[i].length() >= longitud) {
+						mayor++;
+						return mayor;
+					}
 				}
+				System.out.println();
 			}
 			f.close();
 
 		} catch (FileNotFoundException e) {
 			System.out.println("El fichero " + nombre + " no ha podido ser abierto.");
 		}
+		return longitud;
 	}
 
 	public static void main(String[] args) {
@@ -58,7 +62,11 @@ public class Ejercicio2 {
 		System.out.print("Dame la ruta + nombre del fichero: ");
 		// C:\Users\Gestor\Desktop\textoExamen.txt
 		String fichero = entrada.nextLine();
+		System.out.println("Dime la longitud que quieres comparar");
+		int longitud = entrada.nextInt();
 		// pasamos la ruta al metodo de lectura
-		lectura(fichero);
+		palabrasMasLargasQue(longitud, fichero);
+		// lectura(fichero);
+		System.out.println();
 	}
 }
